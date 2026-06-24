@@ -44,11 +44,13 @@ The TA cross-references this checklist against `git log --author=<email>` on the
 
 ### Frontend lead
 
+- [x] `web/Dockerfile` uses node:20-slim and build args
+- [x] Verified field-for-field consistency (snake_case) to prevent schema drift
 - [ ] `web/pages/extract.tsx`
 - [ ] `web/pages/kg.tsx`
 - [ ] `web/pages/rag.tsx`
-- [ ] `web/lib/types.ts` — three TypeScript interfaces mirroring Pydantic
-- [ ] `web/Dockerfile` — multi-stage Node
+- [x] `web/lib/types.ts` mirrors `api/models.py` , three TypeScript interfaces mirroring Pydantic (Updated: included all Requests and Responses)
+- [x] `web/Dockerfile` — multi-stage Node, uses node:20-slim
 - [ ] `tests/frontend/playwright/*.spec.ts` — one per page
 
 ### Infra-Integration lead
