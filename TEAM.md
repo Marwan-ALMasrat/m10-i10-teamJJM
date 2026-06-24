@@ -42,7 +42,7 @@ The TA cross-references this checklist against `git log --author=<email>` on the
 - [ ] `api/deps.py` — `Depends()` functions
 - [ ] `api/Dockerfile` — single-stage Python
 
-### Frontend lead
+### Frontend lead Jumana
 
 - [x] `web/Dockerfile` uses node:20-slim and build args
 - [x] Verified field-for-field consistency (snake_case) to prevent schema drift
