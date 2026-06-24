@@ -42,8 +42,10 @@ The TA cross-references this checklist against `git log --author=<email>` on the
 - [ ] `api/deps.py` — `Depends()` functions
 - [ ] `api/Dockerfile` — single-stage Python
 
-### Frontend lead
+### Frontend lead Jumana Melhem
 
+- [x] `web/lib/types.ts` mirrors `api/models.py`
+- [x] `web/Dockerfile` uses node:20-slim and build args
 - [ ] `web/pages/extract.tsx`
 - [ ] `web/pages/kg.tsx`
 - [ ] `web/pages/rag.tsx`
