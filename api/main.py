@@ -15,8 +15,10 @@ from contextlib import asynccontextmanager
 
 import spacy
 import weaviate
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.exceptions import RequestValidationError
 from neo4j import GraphDatabase
 from sentence_transformers import SentenceTransformer
 
@@ -57,6 +59,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="M10 Recipe Service", lifespan=lifespan)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[os.environ.get("WEB_ORIGIN", "http://localhost:3000")],
@@ -66,10 +69,39 @@ app.add_middleware(
 )
 
 
+
+@app.exception_handler(TimeoutError)
+async def timeout_exception_handler(request: Request, exc: TimeoutError):
+    return JSONResponse(
+        status_code=504,
+        content={"status": "error", "error_type": "TimeoutError", "message": str(exc)},
+    )
+
+@app.exception_handler(HTTPException)
+async def custom_http_exception_handler(request: Request, exc: HTTPException):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"status": "error", "error_type": "HTTPException", "message": exc.detail},
+    )
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    return JSONResponse(
+        status_code=422,
+        content={"status": "error", "error_type": "ValidationError", "message": "Invalid input fields provided.", "details": exc.errors()},
+    )
+
+@app.exception_handler(Exception)
+async def universal_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={"status": "error", "error_type": "InternalServerError", "message": "An unexpected system error occurred."},
+    )
+
+
 @app.post("/extract", response_model=ExtractResponse)
 def extract(req: ExtractRequest, nlp=Depends(get_nlp)) -> ExtractResponse:
     return ExtractResponse(entities=extract_entities(req.text, nlp))
-
 
 @app.post("/kg/query", response_model=KGResponse)
 def kg_query(req: KGRequest, session=Depends(get_session)) -> KGResponse:
@@ -86,7 +118,6 @@ def kg_query(req: KGRequest, session=Depends(get_session)) -> KGResponse:
     rows = [r.data() for r in session.run(cypher, **params)]
     return KGResponse(cypher=cypher, rows=rows, count=len(rows))
 
-
 @app.post("/rag/answer", response_model=RAGResponse)
 def rag_answer(
     req: RAGRequest,
@@ -94,14 +125,13 @@ def rag_answer(
     generator=Depends(get_generator),
     embedder=Depends(get_embedder),
 ) -> RAGResponse:
+
     result = compose_rag(req.question, embedder, weaviate_client, generator, k=req.k)
     return RAGResponse(**result)
-
 
 @app.get("/healthz", response_model=HealthResponse)
 def healthz() -> HealthResponse:
     return HealthResponse(status="ok")
-
 
 @app.get("/readyz")
 def readyz(
