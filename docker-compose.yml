@@ -71,6 +71,9 @@ services:
       # crash at startup with ModuleNotFoundError: No module named 'api'.
       context: .
       dockerfile: api/Dockerfile
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     ports:
       - "8000:8000"
     environment:
@@ -88,13 +91,13 @@ services:
         condition: service_healthy
     healthcheck:
       # python:3.11-slim ships neither curl nor wget — use stdlib urllib.
-      # start_period 180s covers cold HuggingFace cache (spaCy + flan-t5
+      # start_period 300s covers cold HuggingFace cache (spaCy + flan-t5
       # download on first boot, up to ~4 min).
       test: [ "CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/readyz')" ]
       interval: 15s
       timeout: 10s
       retries: 10
-      start_period: 180s
+      start_period: 300s
 
   # ------------------------------------------------------------------
   # Web — Next.js frontend
@@ -113,7 +116,7 @@ services:
       api:
         condition: service_healthy
     healthcheck:
-      # node:20-slim ships neither curl nor wget — use Node's stdlib http.
+      # node:20-slim ships node but not curl/wget — use Node's stdlib http.
       test: [ "CMD", "node", "-e", "require('http').get('http://localhost:3000', r => process.exit(r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1))" ]
       interval: 10s
       timeout: 5s
