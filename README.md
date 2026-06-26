@@ -10,6 +10,19 @@ stack delivered as a 3-Team-Member team.
 > Team-facing spec:
 > <https://LevelUp-Applied-AI.github.io/aispire-14005-pages/modules/module-10/4ba363ed>
 
+## Overview
+
+A four-service Docker Compose stack for a recipe knowledge service.
+
+| Service | Technology | Role |
+|---|---|---|
+| `api` | FastAPI + Python 3.11 | NLP, KG, RAG endpoints |
+| `web` | Next.js 14 | Three-page frontend |
+| `neo4j` | Neo4j 5 Community | Recipe knowledge graph |
+| `weaviate` | Weaviate 1.24 | Vector index for RAG retrieval |
+
+Stack startup order: `neo4j + weaviate → api → web`
+
 ## Team Roles
 
 See [TEAM.md](TEAM.md) for role assignments and the per-role file
@@ -49,6 +62,53 @@ curl -s -X POST http://localhost:8000/rag/answer \
 
 # Open the web UI at http://localhost:3000/rag
 ```
+
+## Troubleshooting
+
+**neo4j or api unhealthy on first run:**
+```bash
+# Services need time to start — re-run until all four are healthy
+docker compose up -d
+docker compose ps
+```
+
+**api still loading flan-t5 (~4 min on cold cache):**
+```bash
+# Watch until "Application startup complete" appears
+docker compose logs api -f
+# Then re-run
+docker compose up -d
+```
+
+**web not starting:**
+```bash
+docker compose up -d web
+```
+
+**seed scripts fail on Windows (line endings):**
+```bash
+sed -i 's/\r//' scripts/seed_neo4j.sh
+sed -i 's/\r//' scripts/seed_weaviate.sh
+```
+
+**Teardown and re-seed (idempotency check):**
+```bash
+docker compose down -v
+docker compose up -d --build
+docker compose up -d
+bash scripts/seed_neo4j.sh
+bash scripts/seed_weaviate.sh
+```
+
+## Service ports
+
+| Service | Port |
+|---|---|
+| web (Next.js) | 3000 |
+| api (FastAPI) | 8000 |
+| neo4j (Bolt) | 7687 |
+| neo4j (Browser) | 7474 |
+| weaviate | 8080 |
 
 ## Submission
 
