@@ -19,9 +19,9 @@ This file is the team roster artifact for the Module 10 four-service Docker Comp
 
 | Role | Team Member identifier | Assigned by | Branch | Internal-PR reviewer | Primary files owned |
 |---|---|---|---|---|---|
-| Backend lead | _(initials or anon ID)_ | Instructional team | `backend/api-endpoints` | Frontend lead | `api/main.py`, `api/models.py`, `api/rag.py`, `api/deps.py`, `api/Dockerfile` |
-| Frontend lead | _(initials or anon ID)_ | Instructional team | `frontend/nextjs-pages` | Backend lead | `web/pages/{extract,kg,rag}.tsx`, `web/lib/types.ts`, `web/Dockerfile`, `tests/frontend/playwright/*` |
-| Infra-Integration lead | _(initials or anon ID)_ | Instructional team | `infra/docker-compose` | Backend lead | `docker-compose.yml`, `seed_neo4j.sh`, `seed_weaviate.sh`, `.env.example`, `README.md`, `tests/integration/*` |
+| Backend lead | _lead3_ | Instructional team | `backend/api-endpoints` | Frontend lead | `api/main.py`, `api/models.py`, `api/rag.py`, `api/deps.py`, `api/Dockerfile` |
+| Frontend lead | _lead1_ | Instructional team | `frontend/nextjs-pages` | Backend lead | `web/pages/{extract,kg,rag}.tsx`, `web/lib/types.ts`, `web/Dockerfile`, `tests/frontend/playwright/*` |
+| Infra-Integration lead | _lead2_ | Instructional team | `infra/docker-compose` | Backend lead | `docker-compose.yml`, `seed_neo4j.sh`, `seed_weaviate.sh`, `.env.example`, `README.md`, `tests/integration/*` |
 
 **Fallback compositions for non-3-Team-Member teams:**
 
@@ -36,29 +36,29 @@ The TA cross-references this checklist against `git log --author=<email>` on the
 
 ### Backend lead
 
-- [ ] `api/main.py` — path operations, `lifespan`, CORS middleware
-- [ ] `api/models.py` — Pydantic shapes
-- [ ] `api/rag.py` — RAG composer with grounding contract
-- [ ] `api/deps.py` — `Depends()` functions
-- [ ] `api/Dockerfile` — single-stage Python
+- [x] `api/main.py` — path operations, `lifespan`, CORS middleware
+- [x] `api/models.py` — Pydantic shapes
+- [x] `api/rag.py` — RAG composer with grounding contract
+- [x] `api/deps.py` — `Depends()` functions
+- [x] `api/Dockerfile` — single-stage Python
 
 ### Frontend lead
 
-- [ ] `web/pages/extract.tsx`
-- [ ] `web/pages/kg.tsx`
-- [ ] `web/pages/rag.tsx`
-- [ ] `web/lib/types.ts` — three TypeScript interfaces mirroring Pydantic
-- [ ] `web/Dockerfile` — multi-stage Node
-- [ ] `tests/frontend/playwright/*.spec.ts` — one per page
+- [x] `web/pages/extract.tsx`
+- [x] `web/pages/kg.tsx`
+- [x] `web/pages/rag.tsx`
+- [x] `web/lib/types.ts` — three TypeScript interfaces mirroring Pydantic
+- [x] `web/Dockerfile` — multi-stage Node
+- [x] `tests/frontend/playwright/*.spec.ts` — one per page
 
 ### Infra-Integration lead
 
-- [ ] `docker-compose.yml` — four services, healthchecks, `depends_on` chain, named volumes
-- [ ] `seed_neo4j.sh`
-- [ ] `seed_weaviate.sh`
-- [ ] `.env.example` (no real credentials)
-- [ ] `README.md` runbook
-- [ ] `tests/integration/test_stack_e2e.py`
+- [x] `docker-compose.yml` — four services, healthchecks, `depends_on` chain, named volumes
+- [x] `seed_neo4j.sh`
+- [x] `seed_weaviate.sh`
+- [x] `.env.example` (no real credentials)
+- [x] `README.md` runbook
+- [x] `tests/integration/test_stack_e2e.py`
 
 ---
 
