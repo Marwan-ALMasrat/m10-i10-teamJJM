@@ -19,14 +19,38 @@ This file is the team roster artifact for the Module 10 four-service Docker Comp
 
 | Role | Team Member identifier | Assigned by | Branch | Internal-PR reviewer | Primary files owned |
 |---|---|---|---|---|---|
-| Backend lead | _(initials or anon ID)_ | Instructional team | `backend/api-endpoints` | Frontend lead | `api/main.py`, `api/models.py`, `api/rag.py`, `api/deps.py`, `api/Dockerfile` |
+| Backend lead | lead3 | Instructional team | `backend/api-endpoints` | Frontend lead | `api/main.py`, `api/models.py`, `api/rag.py`, `api/deps.py`, `api/Dockerfile` |
 | Frontend lead | _(initials or anon ID)_ | Instructional team | `frontend/nextjs-pages` | Backend lead | `web/pages/{extract,kg,rag}.tsx`, `web/lib/types.ts`, `web/Dockerfile`, `tests/frontend/playwright/*` |
 | Infra-Integration lead | lead2 | Instructional team | `infra/docker-compose` | Backend lead | `docker-compose.yml`, `seed_neo4j.sh`, `seed_weaviate.sh`, `.env.example`, `README.md`, `tests/integration/*` |
 
 **Fallback compositions for non-3-Team-Member teams:**
 
 - **2 Team Members:** Frontend and Infra-Integration roles merge. The merged Team Member owns all `web/`, `docker-compose.yml`, and `seed_*.sh` files.
-- **4 Team Members:** Infra-Integration splits into "Compose + healthchecks" (owns `docker-compose.yml`, all healthchecks, readiness ordering) and "Seed + runbook" (owns `seed_neo4j.sh`, `seed_weaviate.sh`, `README.md` runbook). The two Team Members internal-review each other.
+- **4 Team Members:** Infra-Integration splits into "Compose + healthchecks" (owns `docker-compose.yml`, all healthchecks, readiness ordering) and "Seed + runbook" (owns `seed_neo4j.sh`, `seed_weaviate.sh`, `README.md` runbook). The two Team Members intern Water Purification System
+
+
+
+2. Food Supplies & 3. Medical Supplies
+
+
+
+4. Tents & 5. Blankets
+
+
+
+6. Portable Generators & 7. Fuel
+
+
+
+8. Satellite Phones
+
+
+
+9. Chainsaws
+
+
+
+10. Portable Lightskal-review each other.
 
 ---
 
@@ -36,11 +60,11 @@ The TA cross-references this checklist against `git log --author=<email>` on the
 
 ### Backend lead
 
-- [ ] `api/main.py` — path operations, `lifespan`, CORS middleware
-- [ ] `api/models.py` — Pydantic shapes
-- [ ] `api/rag.py` — RAG composer with grounding contract
-- [ ] `api/deps.py` — `Depends()` functions
-- [ ] `api/Dockerfile` — single-stage Python
+- [x] `api/main.py` — path operations, `lifespan`, CORS middleware
+- [x] `api/models.py` — Pydantic shapes
+- [x] `api/rag.py` — RAG composer with grounding contract
+- [x] `api/deps.py` — `Depends()` functions
+- [x] `api/Dockerfile` — single-stage Python
 
 ### Frontend lead
 
