@@ -11,7 +11,7 @@ This file is the team roster artifact for the Module 10 four-service Docker Comp
 - **Team name:** _(team-chosen identifier — e.g., `team-aurora`)_
 - **Team Slack channel:** _(cohort Slack channel — e.g., `#m10-team-aurora`)_
 - **Team-formation date:** _(YYYY-MM-DD — the date the instructional team posted the roster)_
-- **Designated team submitter:** _(role token — typically `Infra-Integration lead`)_
+- **Designated team submitter:** Infra-Integration lead
 
 ---
 
@@ -21,7 +21,7 @@ This file is the team roster artifact for the Module 10 four-service Docker Comp
 |---|---|---|---|---|---|
 | Backend lead | _(initials or anon ID)_ | Instructional team | `backend/api-endpoints` | Frontend lead | `api/main.py`, `api/models.py`, `api/rag.py`, `api/deps.py`, `api/Dockerfile` |
 | Frontend lead | _(initials or anon ID)_ | Instructional team | `frontend/nextjs-pages` | Backend lead | `web/pages/{extract,kg,rag}.tsx`, `web/lib/types.ts`, `web/Dockerfile`, `tests/frontend/playwright/*` |
-| Infra-Integration lead | _(initials or anon ID)_ | Instructional team | `infra/docker-compose` | Backend lead | `docker-compose.yml`, `seed_neo4j.sh`, `seed_weaviate.sh`, `.env.example`, `README.md`, `tests/integration/*` |
+| Infra-Integration lead | lead2 | Instructional team | `infra/docker-compose` | Backend lead | `docker-compose.yml`, `seed_neo4j.sh`, `seed_weaviate.sh`, `.env.example`, `README.md`, `tests/integration/*` |
 
 **Fallback compositions for non-3-Team-Member teams:**
 
@@ -53,12 +53,12 @@ The TA cross-references this checklist against `git log --author=<email>` on the
 
 ### Infra-Integration lead
 
-- [ ] `docker-compose.yml` — four services, healthchecks, `depends_on` chain, named volumes
-- [ ] `seed_neo4j.sh`
-- [ ] `seed_weaviate.sh`
-- [ ] `.env.example` (no real credentials)
-- [ ] `README.md` runbook
-- [ ] `tests/integration/test_stack_e2e.py`
+- [x] `docker-compose.yml` — four services, healthchecks, `depends_on` chain, named volumes
+- [x] `seed_neo4j.sh`
+- [x] `seed_weaviate.sh`
+- [x] `.env.example` (no real credentials)
+- [x] `README.md` runbook
+- [x] `tests/integration/test_stack_e2e.py`
 
 ---
 
