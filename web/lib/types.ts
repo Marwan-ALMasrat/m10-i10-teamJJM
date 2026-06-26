@@ -33,3 +33,20 @@ export interface RAGResponse {
   citations: Citation[];
   confidence: number;
 }
+
+export interface ExtractRequest {
+  text: string;
+}
+
+export interface KGRequest {
+  question: string;
+}
+
+export interface RAGRequest {
+  question: string;
+  k?: number; 
+}
+
+export interface HealthResponse {
+  status: string;
+}
