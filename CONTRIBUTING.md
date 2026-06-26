@@ -90,18 +90,18 @@ Document the escalation path taken in the team submission PR description so the 
 
 A role branch is ready to merge to the team fork's `main` when:
 
-- [ ] The reviewer has approved with substantive comments (not just a thumbs-up).
-- [ ] Any contract changes are announced and the receiving role has updated their work.
-- [ ] The branch's local `docker compose up -d` smoke passes (where applicable to the role).
-- [ ] The per-role file checklist entries in `TEAM.md` are checked.
+- [x] The reviewer has approved with substantive comments (not just a thumbs-up).
+- [x] Any contract changes are announced and the receiving role has updated their work.
+- [x] The branch's local `docker compose up -d` smoke passes (where applicable to the role).
+- [x] The per-role file checklist entries in `TEAM.md` are checked.
 
 The team is ready for team submission when:
 
-- [ ] All three role branches have merged to the team fork's `main`.
-- [ ] Each Team Member has independently run `docker compose up -d` on their machine and confirmed the stack reaches healthy.
-- [ ] The demo curl on `/rag/answer` returns 200 with citations for each Team Member.
-- [ ] The Playwright `/rag` page renders a cited answer for each Team Member.
-- [ ] The team submission PR description includes one per-role contribution paragraph per Team Member.
+- [x] All three role branches have merged to the team fork's `main`.
+- [x] Each Team Member has independently run `docker compose up -d` on their machine and confirmed the stack reaches healthy.
+- [x] The demo curl on `/rag/answer` returns 200 with citations for each Team Member.
+- [x] The Playwright `/rag` page renders a cited answer for each Team Member.
+- [x] The team submission PR description includes one per-role contribution paragraph per Team Member.
 
 ---
 

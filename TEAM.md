@@ -8,9 +8,9 @@ This file is the team roster artifact for the Module 10 four-service Docker Comp
 
 ## Team Identity
 
-- **Team name:** _(team-chosen identifier — e.g., `team-aurora`)_
-- **Team Slack channel:** _(cohort Slack channel — e.g., `#m10-team-aurora`)_
-- **Team-formation date:** _(YYYY-MM-DD — the date the instructional team posted the roster)_
+- **Team name:** _(team-chosen identifier — e.g., `teamJJM`)_
+- **Team Slack channel:** _(cohort Slack channel — e.g., `#m10-team-JJM`)_
+- **Team-formation date:** _(2026-6-24 — the date the instructional team posted the roster)_
 - **Designated team submitter:** Infra-Integration lead
 
 ---
