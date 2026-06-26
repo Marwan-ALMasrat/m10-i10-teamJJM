@@ -11,7 +11,7 @@ This file is the team roster artifact for the Module 10 four-service Docker Comp
 - **Team name:** _(team-chosen identifier — e.g., `team-aurora`)_
 - **Team Slack channel:** _(cohort Slack channel — e.g., `#m10-team-aurora`)_
 - **Team-formation date:** _(YYYY-MM-DD — the date the instructional team posted the roster)_
-- **Designated team submitter:** _(role token — typically `Infra-Integration lead`)_
+- **Designated team submitter:** Infra-Integration lead
 
 ---
 
@@ -19,14 +19,44 @@ This file is the team roster artifact for the Module 10 four-service Docker Comp
 
 | Role | Team Member identifier | Assigned by | Branch | Internal-PR reviewer | Primary files owned |
 |---|---|---|---|---|---|
+ frontend/nextjs-pages
 | Backend lead | _(initials or anon ID)_ | Instructional team | `backend/api-endpoints` | Frontend lead | `api/main.py`, `api/models.py`, `api/rag.py`, `api/deps.py`, `api/Dockerfile` |
 | Frontend lead | lead1 | Instructional team | `frontend/nextjs-pages` | Backend lead | `web/pages/{extract,kg,rag}.tsx`, `web/lib/types.ts`, `web/Dockerfile`, `tests/frontend/playwright/*` |
 | Infra-Integration lead | _(initials or anon ID)_ | Instructional team | `infra/docker-compose` | Backend lead | `docker-compose.yml`, `seed_neo4j.sh`, `seed_weaviate.sh`, `.env.example`, `README.md`, `tests/integration/*` |
 
+| Backend lead | lead3 | Instructional team | `backend/api-endpoints` | Frontend lead | `api/main.py`, `api/models.py`, `api/rag.py`, `api/deps.py`, `api/Dockerfile` |
+| Frontend lead | _(initials or anon ID)_ | Instructional team | `frontend/nextjs-pages` | Backend lead | `web/pages/{extract,kg,rag}.tsx`, `web/lib/types.ts`, `web/Dockerfile`, `tests/frontend/playwright/*` |
+| Infra-Integration lead | lead2 | Instructional team | `infra/docker-compose` | Backend lead | `docker-compose.yml`, `seed_neo4j.sh`, `seed_weaviate.sh`, `.env.example`, `README.md`, `tests/integration/*` |
+ main
+
 **Fallback compositions for non-3-Team-Member teams:**
 
 - **2 Team Members:** Frontend and Infra-Integration roles merge. The merged Team Member owns all `web/`, `docker-compose.yml`, and `seed_*.sh` files.
-- **4 Team Members:** Infra-Integration splits into "Compose + healthchecks" (owns `docker-compose.yml`, all healthchecks, readiness ordering) and "Seed + runbook" (owns `seed_neo4j.sh`, `seed_weaviate.sh`, `README.md` runbook). The two Team Members internal-review each other.
+- **4 Team Members:** Infra-Integration splits into "Compose + healthchecks" (owns `docker-compose.yml`, all healthchecks, readiness ordering) and "Seed + runbook" (owns `seed_neo4j.sh`, `seed_weaviate.sh`, `README.md` runbook). The two Team Members intern Water Purification System
+
+
+
+2. Food Supplies & 3. Medical Supplies
+
+
+
+4. Tents & 5. Blankets
+
+
+
+6. Portable Generators & 7. Fuel
+
+
+
+8. Satellite Phones
+
+
+
+9. Chainsaws
+
+
+
+10. Portable Lightskal-review each other.
 
 ---
 
@@ -36,11 +66,11 @@ The TA cross-references this checklist against `git log --author=<email>` on the
 
 ### Backend lead
 
-- [ ] `api/main.py` — path operations, `lifespan`, CORS middleware
-- [ ] `api/models.py` — Pydantic shapes
-- [ ] `api/rag.py` — RAG composer with grounding contract
-- [ ] `api/deps.py` — `Depends()` functions
-- [ ] `api/Dockerfile` — single-stage Python
+- [x] `api/main.py` — path operations, `lifespan`, CORS middleware
+- [x] `api/models.py` — Pydantic shapes
+- [x] `api/rag.py` — RAG composer with grounding contract
+- [x] `api/deps.py` — `Depends()` functions
+- [x] `api/Dockerfile` — single-stage Python
 
 ### Frontend lead Jumana
 
@@ -55,12 +85,12 @@ The TA cross-references this checklist against `git log --author=<email>` on the
 
 ### Infra-Integration lead
 
-- [ ] `docker-compose.yml` — four services, healthchecks, `depends_on` chain, named volumes
-- [ ] `seed_neo4j.sh`
-- [ ] `seed_weaviate.sh`
-- [ ] `.env.example` (no real credentials)
-- [ ] `README.md` runbook
-- [ ] `tests/integration/test_stack_e2e.py`
+- [x] `docker-compose.yml` — four services, healthchecks, `depends_on` chain, named volumes
+- [x] `seed_neo4j.sh`
+- [x] `seed_weaviate.sh`
+- [x] `.env.example` (no real credentials)
+- [x] `README.md` runbook
+- [x] `tests/integration/test_stack_e2e.py`
 
 ---
 
